@@ -99,7 +99,7 @@ public class listaFarmacias {
 		this.tail = newNode;
 		this.tamaño++;
 	}
-        public void remove(Farmacia farmacia) {
+        public void remove() {
 		//verificar que la lista no esté vacía
 		if ((this.head == this.current) && (this.head == this.tail)){
 			System.out.println("Lista vacía");

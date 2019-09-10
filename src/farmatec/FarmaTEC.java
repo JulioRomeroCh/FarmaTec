@@ -32,7 +32,7 @@ public class FarmaTEC {
       lista1.append(farmacia1);
       lista1.append(farmacia2);
       System.out.println("Lista de farmacias: "+ lista1.toString());
-      System.out.println("actual:"+lista1);
+      System.out.println("actual:"+lista1);  
       lista1.remove();
       System.out.println("Nueva: "+ lista1.toString());
     }
