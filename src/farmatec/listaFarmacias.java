@@ -1,14 +1,13 @@
 package farmatec;
 
-import java.util.LinkedList;
-
 public class listaFarmacias {
 
-    public class Nodo {
+    public class Nodo {//Inicio clase Nodo
 
         private Farmacia farmacia;
         private Nodo next;
 
+        //Constructores
         public Nodo() {
             this.farmacia = null;
             this.next = null;
@@ -24,6 +23,7 @@ public class listaFarmacias {
             this.next = next;
         }
 
+        //Métodos
         public Object getElement() {
             return this.farmacia;
         }
@@ -40,7 +40,8 @@ public class listaFarmacias {
             this.next = next;
         }
 
-    }
+    }//Fin de la clase Nodo
+    
     //Atributos de la clase listaFarmacias
     private Nodo head;
     private Nodo current;
@@ -48,7 +49,7 @@ public class listaFarmacias {
     private int position;
     private int size;
 
-    // Se crea el constructor por defecto de la clase ListaReproduccion, que asigne los valores por defecto a los atributos
+    // Se crea el constructor por defecto de la clase listaFarmacias, que asigne los valores por defecto a los atributos
     public listaFarmacias() {
         this.head = new Nodo();
         this.current = this.head;
@@ -57,12 +58,14 @@ public class listaFarmacias {
         this.size = 0;
     }
 
+    //Constructor
     public listaFarmacias(listaFarmacias farmacias) {
 
     }
-
+    
+    //Métodos
     public void append(Object element) {
-        //siempre se pega al final de la lista
+        //siempre se añade al final de la lista
         Nodo newNode = new Nodo(element);
         this.tail.setNext(newNode);
         this.tail = newNode;
@@ -70,10 +73,10 @@ public class listaFarmacias {
     }
 
     public void insert(Object element) {
-        //insertar en cualquier posiciÃ³n
+        //Insertar en cualquier posición
         Nodo newNode = new Nodo(element, this.current.getNext());
         this.current.setNext(newNode);
-        //necesario si se está insertando al final de la lista
+        //Necesario si se está insertando al final de la lista
         if (this.current == this.tail) {
             this.tail = tail.getNext();
         }
@@ -152,6 +155,7 @@ public class listaFarmacias {
         this.position = -1;
     }
 
+    //Método para buscar la farmacia en la lista, para luego poder añadirle los medicamentos que se desea
     public void goTonom(String nom) {
         this.current = this.head;
         this.current = this.current.getNext();
@@ -206,7 +210,7 @@ public class listaFarmacias {
         }
         return result.toString();
     }
-
+    //Este metodo y el siguiente son pruebas...
     public String tooString() {
         Nodo currentNode = this.head.getNext();
 

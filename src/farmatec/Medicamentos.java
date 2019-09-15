@@ -2,6 +2,7 @@ package farmatec;
 
 public class Medicamentos {
     
+    //Atributos de la clase
     private String Nombre;
     private String Marca;
     private String Descripcion;
@@ -10,10 +11,12 @@ public class Medicamentos {
     private String Efectos_Secundarios;
     public int cantidad;
      
+    //Constructor
     public Medicamentos(){
         
     }
 
+    //Métodos
     public String getNombre() {
         return Nombre;
     }

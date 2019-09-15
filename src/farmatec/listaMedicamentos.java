@@ -4,12 +4,11 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
 
     public class Nodo {//Inicio de la clase Nodo
 
-        //Inicio Atributos
+        //Atributos
         private Object medicamento;
         private Nodo next;
-        //Fin Atributos
 
-        //Inicio Constructores
+        //Constructores
         public Nodo() {
             this.medicamento = null;
             this.next = null;
@@ -24,8 +23,9 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
             this.medicamento = medicamento;
             this.next = next;
         }
-        //Fin Constructores
-
+        //Constructores
+        
+        //Métodos
         public Object getElement() {
             return this.medicamento;
         }
@@ -41,6 +41,7 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
         public void setNext(Nodo next) {
             this.next = next;
         }
+        //Métodos
 
     }//Fin de la clase Nodo
 
@@ -50,10 +51,9 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
     private Nodo tail;
     private int position;
     private int size;
+    //Fin Atributos
 
-//Fin Atributos
-
-//Inicio constructores
+    //Inicio constructores
     public listaMedicamentos() {
 
         this.head = new Nodo();
@@ -67,9 +67,9 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
     public listaMedicamentos(listaMedicamentos medicamentos) {
 
     }
-//Fin constructores
+    //Fin constructores
 
-
+    //Inicio métodos
     public void append(Object element) {
         //siempre se agrega al final de la lista
         Nodo newNode = new Nodo(element);
@@ -181,7 +181,7 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
         }
         return result.toString();
     }
-
+    //Este metodo y el siguiente son pruebas...
     public String tooString() {
         Nodo currentNode = this.head.getNext();
 
@@ -215,5 +215,6 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
         }
         return result.toString();
     }
+    //Fin métoodos
 
 }//Fin de la clase listaMedicamentos

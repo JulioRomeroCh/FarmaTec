@@ -60,57 +60,38 @@ public class FarmaTEC {
         lista1.append(farmacia2);
         lista1.append(farmacia3);
         
+        //Muestra la lista de farmacias actuales
         System.out.println("Lista de farmacias: " + lista1.toString());
         
   
-        
+        //Añade uno o más medicamentos a la farmacia
         lista1.goTonom("FarmaTEC Cartago");       
         Farmacia farma1 = (Farmacia)lista1.getElement();
         listaMedicamentos lc = farma1.listameds;
         lc.append(medicamento1);
         lc.append(medicamento2);
+        //Salida con los medicamentos añadidos 
+        System.err.println("PRUEBA 1: " + farma1.getNombre() + " " + lc.toString());
         
         
-        //System.out.println("PRUEBA: " + lc.toString());
-        //System.out.println(farma1.getNombre());
-        System.err.println("QUEPEX: " + farma1.getNombre() + " " + lc.toString());
-        
+        //Añade uno o más medicamentos a la farmacia
         lista1.goTonom("FarmaTEC San José");
         Farmacia farma2 = (Farmacia)lista1.getElement();
         listaMedicamentos lsj = farma2.listameds;
         lsj.append(medicamento1);
-        //System.out.println(farma2.getNombre());
-        System.err.println("QUEPEX2: " + farma2.getNombre() + " " + lsj.toString());
+        //Salida con los medicamentos añadidos
+        System.err.println("PRUEBA 2: " + farma2.getNombre() + " " + lsj.toString());
         
-        
+        //Remueve una farmacia
         lista1.goToPos(2);
         lista1.remove();
         System.out.println("Nueva: " + lista1.toString());
 
         
-
+        //Remueve un medicamento
         listam.goToPos(1);
         listam.remove();
         System.out.println("Nueva: " + listam.toString());
-
-
-/*
-        listaMedicamentos ln = new listaMedicamentos();
-        ln.append(medicamento1);
-        ln.append(medicamento2);
-        System.out.println("H: " + ln.tooString());
-        
-        lista1.goToPos(0);
-        ln.goToPos(0);
-        lista1.insert(ln.getElement());
-        System.out.println("Prueba 2: " + lista1.tooString());
-        
-        
-        lista1.goToPos(2);
-        ln.goToPos(1);
-        lista1.insert(ln.getElement());
-        System.out.println("Prueba 2: " + lista1.tooString());
-*/
 
     }//Fin Main
 
