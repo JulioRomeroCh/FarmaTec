@@ -6,14 +6,14 @@ public class FarmaTEC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {//Inicio Main
-
+        
         //Farmacia 01
         Farmacia farmacia1 = new Farmacia();
         farmacia1.setNombre("FarmaTEC Cartago");
         farmacia1.setCedulaJuridica("4-678-160376");
         farmacia1.setTelefono(25518765);
         farmacia1.setUbicacion("ITCR,Sede central cartago");
-
+        
         //Farmacia 02
         Farmacia farmacia2 = new Farmacia();
         farmacia2.setNombre("FarmaTEC San Carlos");
@@ -52,7 +52,7 @@ public class FarmaTEC {
         listam.append(medicamento1);
         listam.append(medicamento2);
         System.err.println(medicamento2.getCantidad());
-        System.out.println("Lista de medicamentos: " + listam.toString());
+        System.out.println("Lista de medicamentos: " + listam.toooString());
 
         //Creación de la lista
         listaFarmacias lista1 = new listaFarmacias();
@@ -60,9 +60,27 @@ public class FarmaTEC {
         lista1.append(farmacia2);
         lista1.append(farmacia3);
         
+        
+        
+        
+        
+        
+        
+        
+             
+        
+        
         //Muestra la lista de farmacias actuales
         System.out.println("Lista de farmacias: " + lista1.toString());
+        lista1.goToPos(2);
+        lista1.remove();
+        System.out.println("Nueva: " + lista1.toString());
+
         
+        //Remueve un medicamento
+        listam.goToPos(1);
+        listam.remove();
+        System.out.println("Nueva: " + listam.toString());
   
         //Añade uno o más medicamentos a la farmacia
         lista1.goTonom("FarmaTEC Cartago");       
@@ -75,7 +93,7 @@ public class FarmaTEC {
         
         
         //Añade uno o más medicamentos a la farmacia
-        lista1.goTonom("FarmaTEC San José");
+        lista1.goTonom("FarmaTEC San Carlos");
         Farmacia farma2 = (Farmacia)lista1.getElement();
         listaMedicamentos lsj = farma2.listameds;
         lsj.append(medicamento1);
@@ -83,15 +101,14 @@ public class FarmaTEC {
         System.err.println("PRUEBA 2: " + farma2.getNombre() + " " + lsj.toString());
         
         //Remueve una farmacia
-        lista1.goToPos(2);
-        lista1.remove();
-        System.out.println("Nueva: " + lista1.toString());
-
+                                        
+        listaFarmacias VerMedi=new listaFarmacias();
+        VerMedi.append(farmacia1);
+        VerMedi.append(farmacia2);
+        VerMedi.append(farmacia3);
+        listaMedicamentos listaDeMedicinas=VerMedi.VerMedicamentos();
+        listaDeMedicinas.VisualizarMedicamentos();
         
-        //Remueve un medicamento
-        listam.goToPos(1);
-        listam.remove();
-        System.out.println("Nueva: " + listam.toString());
 
     }//Fin Main
 

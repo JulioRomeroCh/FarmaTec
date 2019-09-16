@@ -1,12 +1,11 @@
 package farmatec;
-
+import java.util.Scanner;
 public class listaFarmacias {
 
     public class Nodo {//Inicio clase Nodo
 
         private Farmacia farmacia;
         private Nodo next;
-
         //Constructores
         public Nodo() {
             this.farmacia = null;
@@ -48,7 +47,6 @@ public class listaFarmacias {
     private Nodo tail;
     private int position;
     private int size;
-
     // Se crea el constructor por defecto de la clase listaFarmacias, que asigne los valores por defecto a los atributos
     public listaFarmacias() {
         this.head = new Nodo();
@@ -230,7 +228,6 @@ public class listaFarmacias {
 
     public String toooString() {
         Nodo currentNode = this.head.getNext();
-
         StringBuffer result = new StringBuffer();
 
         for (int i = 0; currentNode != null; i++) {
@@ -244,5 +241,22 @@ public class listaFarmacias {
         }
         return result.toString();
     }
+    
+    public listaMedicamentos VerMedicamentos(){
+        Scanner input=new Scanner(System.in);
+        System.out.println("Digite la farmacia a la que quiere accesar");
+        String eleccion=input.nextLine();
+        Nodo temporal=head.getNext();
+        while (temporal!=null){
+            if (eleccion.equals(temporal.farmacia.getNombre())){
+                System.out.println(temporal.farmacia.listameds);
+                return temporal.farmacia.listameds;
+            }
+            temporal=temporal.getNext();
+        }
+        return null;
+    }
+    
+    
 
 }

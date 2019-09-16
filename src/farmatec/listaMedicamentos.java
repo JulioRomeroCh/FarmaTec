@@ -5,7 +5,7 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
     public class Nodo {//Inicio de la clase Nodo
 
         //Atributos
-        private Object medicamento;
+        private Medicamentos medicamento;
         private Nodo next;
 
         //Constructores
@@ -14,12 +14,12 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
             this.next = null;
         }
 
-        public Nodo(Object medicamento) {
+        public Nodo(Medicamentos medicamento) {
             this.medicamento = medicamento;
             this.next = null;
         }
 
-        public Nodo(Object medicamento, Nodo next) {
+        public Nodo(Medicamentos medicamento, Nodo next) {
             this.medicamento = medicamento;
             this.next = next;
         }
@@ -30,7 +30,7 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
             return this.medicamento;
         }
 
-        public void setElement(Object medicamento) {
+        public void setElement(Medicamentos medicamento) {
             this.medicamento = medicamento;
         }
 
@@ -70,7 +70,7 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
     //Fin constructores
 
     //Inicio métodos
-    public void append(Object element) {
+    public void append(Medicamentos element) {
         //siempre se agrega al final de la lista
         Nodo newNode = new Nodo(element);
         this.tail.setNext(newNode);
@@ -208,13 +208,39 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
             if (i > 0) {
                 result.append(",");
             }
-            Farmacia element = (Farmacia) currentNode.getElement();
+            Medicamentos element = (Medicamentos) currentNode.getElement();
 
             result.append(element == null ? "" : element.getNombre());
             currentNode = currentNode.getNext();
         }
         return result.toString();
     }
+    
+    
+    public void VisualizarMedicamentos(){
+        Nodo temporal=head.getNext();
+        while (temporal!=null){
+                System.out.println(temporal.medicamento.getCantidad());
+                System.out.println(temporal.medicamento.getDescripcion());
+                System.out.println(temporal.medicamento.getDosis());
+                System.out.println(temporal.medicamento.getEfectos_Secundarios());
+                System.out.println(temporal.medicamento.getMarca());
+                System.out.println(temporal.medicamento.getNombre());
+                System.out.println(temporal.medicamento.getTipo_Medicamento());
+                temporal=temporal.getNext();
+        }
+            
+        }
+ 
+    }
+    
+    
+    
+    
+    
+    
+    
     //Fin métoodos
 
-}//Fin de la clase listaMedicamentos
+
+//Fin de la clase listaMedicamentos
