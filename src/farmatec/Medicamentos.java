@@ -1,7 +1,7 @@
 package farmatec;
 
 public class Medicamentos {
-    
+    //p
     //Atributos de la clase
     private String Nombre;
     private String Marca;

@@ -1,7 +1,7 @@
 package farmatec;
 
 public class Farmacia {
-    
+    //pp
     //Atributos de la clase
     public String nombre;
     private String cedulaJuridica;

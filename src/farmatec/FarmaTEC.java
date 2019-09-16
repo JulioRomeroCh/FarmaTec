@@ -108,7 +108,7 @@ public class FarmaTEC {
         VerMedi.append(farmacia3);
         listaMedicamentos listaDeMedicinas=VerMedi.VerMedicamentos();
         listaDeMedicinas.VisualizarMedicamentos();
-        
+        //cckcdklcddlk
 
     }//Fin Main
 

@@ -3,7 +3,7 @@ package farmatec;
 public class listaMedicamentos {//Inicio de la clase listaMedicamentos
 
     public class Nodo {//Inicio de la clase Nodo
-
+        //dd
         //Atributos
         private Medicamentos medicamento;
         private Nodo next;
