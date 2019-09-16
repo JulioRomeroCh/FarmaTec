@@ -1,5 +1,5 @@
 package farmatec;
-
+//
 public class listaMedicamentos {//Inicio de la clase listaMedicamentos
 
     public class Nodo {//Inicio de la clase Nodo

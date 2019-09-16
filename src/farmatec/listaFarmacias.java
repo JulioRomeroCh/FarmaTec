@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class listaFarmacias {
 
     public class Nodo {//Inicio clase Nodo
-        //oo
+        //oooo
         private Farmacia farmacia;
         private Nodo next;
         //Constructores

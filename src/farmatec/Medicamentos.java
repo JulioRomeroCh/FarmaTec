@@ -1,5 +1,5 @@
 package farmatec;
-
+//
 public class Medicamentos {
     //p
     //Atributos de la clase
