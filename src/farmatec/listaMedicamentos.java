@@ -1,5 +1,10 @@
 package farmatec;
 //
+
+import com.google.api.translate.Language;
+import com.google.api.translate.Translate;
+import com.google.api.GoogleAPI;
+
 public class listaMedicamentos {//Inicio de la clase listaMedicamentos
 
     public class Nodo {//Inicio de la clase Nodo
@@ -217,24 +222,48 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
     }
     
     
-    public void VisualizarMedicamentos(){
+    public void VisualizarMedicamentos()throws Exception {
+        // Set the HTTP referrer to your website address.
+        GoogleAPI.setHttpReferrer("https://github.com/rmtheis/android-ocr");
+
+        // Set the Google Translate API key
+        // See: http://code.google.com/apis/language/translate/v2/getting_started.html
+        GoogleAPI.setKey("AIzaSyAFx3qr-ZGzZN3JCu1gEOME1FdmTxXsBhk");
+        
+        
+        
         Nodo temporal=head.getNext();
         while (temporal!=null){
-                System.out.println(temporal.medicamento.getCantidad());
-                System.out.println(temporal.medicamento.getDescripcion());
-                System.out.println(temporal.medicamento.getDosis());
-                System.out.println(temporal.medicamento.getEfectos_Secundarios());
-                System.out.println(temporal.medicamento.getMarca());
-                System.out.println(temporal.medicamento.getNombre());
-                System.out.println(temporal.medicamento.getTipo_Medicamento());
+                System.out.println(Translate.DEFAULT.execute("Nombre: "+temporal.medicamento.getNombre(),Language.SPANISH,Language.ENGLISH));
+                System.out.println(Translate.DEFAULT.execute("Descripcion "+temporal.medicamento.getDescripcion(),Language.SPANISH,Language.ENGLISH));
+                System.out.println(Translate.DEFAULT.execute("Cantidad "+temporal.medicamento.getCantidad(),Language.SPANISH,Language.ENGLISH));
+                System.out.println(Translate.DEFAULT.execute("Dosis: "+temporal.medicamento.getDosis(),Language.SPANISH,Language.ENGLISH));
+                System.out.println(Translate.DEFAULT.execute("Efectos Secundarios "+temporal.medicamento.getEfectos_Secundarios(),Language.SPANISH,Language.ENGLISH));
+                System.out.println(Translate.DEFAULT.execute("Marca: "+temporal.medicamento.getMarca(),Language.SPANISH,Language.ENGLISH));
+                System.out.println(Translate.DEFAULT.execute("Tipo de Medicamento: "+temporal.medicamento.getTipo_Medicamento(),Language.SPANISH,Language.ENGLISH));
                 temporal=temporal.getNext();
         }
             
         }
- 
+    /**
+     * @param Medicamento
+     * 
+     * @return boolean 
+     */
+    //Busca un medicamento en una lista farmacia.
+    public boolean BuscarMedicamento(String Medicamento){
+        Nodo temporal=head.getNext();
+        while (temporal!=null){
+            System.out.println(temporal.medicamento.getNombre());
+            if (temporal.medicamento.getNombre().equals(Medicamento)==true){
+                return true;
+            }
+            temporal=temporal.getNext();
+        }
+        return false;
     }
     
-    
+}
     
     
     

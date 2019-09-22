@@ -1,11 +1,14 @@
 package farmatec;
 
+import javax.mail.MessagingException;
+
+
 public class FarmaTEC {
 //
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {//Inicio Main
+    public static void main(String[] args) throws MessagingException, Exception {//Inicio Main
         
         //Farmacia 01
         Farmacia farmacia1 = new Farmacia();
@@ -100,16 +103,51 @@ public class FarmaTEC {
         //Salida con los medicamentos añadidos
         System.err.println("PRUEBA 2: " + farma2.getNombre() + " " + lsj.toString());
         
-        //Remueve una farmacia
-                                        
+    
+        //funcion 3                                
         listaFarmacias VerMedi=new listaFarmacias();
         VerMedi.append(farmacia1);
         VerMedi.append(farmacia2);
         VerMedi.append(farmacia3);
         listaMedicamentos listaDeMedicinas=VerMedi.VerMedicamentos();
         listaDeMedicinas.VisualizarMedicamentos();
-        //cckcdklcddlk
+             
+        
+        //funcion 4
+        //Se crea un usuario nuevo y se le asignan el valor a los atributos.
+        Usuario SolicitudUsuario= new Usuario();
+        SolicitudUsuario.setCedula(117760194);
+        SolicitudUsuario.setCorreo("juluiocesarrocha@gmail.com");
+        SolicitudUsuario.setDireccion("Mi casa");
+        String MedSolicitado="Diazepam";
+        System.out.println(VerMedi.BuscarEnFarmacia(MedSolicitado));
+        //Si encuentra el medicamento en alguna farmacia, termina de asignar atributos.
+        if (VerMedi.BuscarEnFarmacia(MedSolicitado)==true){
+            SolicitudUsuario.setMedicamentoSolicitado(MedSolicitado);
+            
+            SolicitudUsuario.setTelefono(24444442);
+            SolicitudUsuario.setNombreUsuario("Julio Romero");
+        
+            System.out.println(SolicitudUsuario.getCedula());
+            System.out.println(SolicitudUsuario.getCorreo());
+            System.out.println(SolicitudUsuario.getDireccion());
+            System.out.println(SolicitudUsuario.getMedicamentoSolicitado());
+            System.out.println(SolicitudUsuario.getNombreUsuario());
+            System.out.println(SolicitudUsuario.getTelefono());
+            //Se llama el metodo para enviar el correo
+            //SolicitudUsuario.enviarMensaje(SolicitudUsuario);
+            //Se agrega a lista pedidos.
+            ListaPedidos ListaTotalPedidos=new ListaPedidos();
+            ListaTotalPedidos.append(SolicitudUsuario);
+            ListaTotalPedidos.append(SolicitudUsuario);
+            System.out.println(ListaTotalPedidos.toString());
 
+    } else if  (VerMedi.BuscarEnFarmacia(MedSolicitado)==false){
+                    System.out.println("Medicamento no valido");
+                    }
+                
+        //cckcdklcddlk
+        
     }//Fin Main
 
 }

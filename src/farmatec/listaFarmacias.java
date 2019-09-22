@@ -1,9 +1,15 @@
 package farmatec;
 import java.util.Scanner;
+//Libreria del traductor
+import com.google.api.translate.Language;
+import com.google.api.translate.Translate;
+import com.google.api.GoogleAPI;
+
+
 public class listaFarmacias {
 
     public class Nodo {//Inicio clase Nodo
-        //oooo
+        //
         private Farmacia farmacia;
         private Nodo next;
         //Constructores
@@ -242,21 +248,60 @@ public class listaFarmacias {
         return result.toString();
     }
     
-    public listaMedicamentos VerMedicamentos(){
-        Scanner input=new Scanner(System.in);
-        System.out.println("Digite la farmacia a la que quiere accesar");
-        String eleccion=input.nextLine();
+    public listaMedicamentos VerMedicamentos()throws Exception {
+        // Set the HTTP referrer to your website address.
+        GoogleAPI.setHttpReferrer("https://github.com/rmtheis/android-ocr");
+
+        // Set the Google Translate API key
+        // See: http://code.google.com/apis/language/translate/v2/getting_started.html
+        GoogleAPI.setKey("AIzaSyAFx3qr-ZGzZN3JCu1gEOME1FdmTxXsBhk");
+
+
+
+        Scanner idioma=new Scanner(System.in);
+        System.out.println("Digite el idioma: 1. Español 2. Ingles");
+        Language Idioma;
+        int eleccionIdioma=idioma.nextInt();
+        switch (eleccionIdioma) {
+            case 1:
+                Idioma=Language.SPANISH;
+                break;
+            case 2:
+                Idioma=Language.ENGLISH;
+                break;
+            default:
+                return null;
+            }
+            Language idiomaOriginal=Language.SPANISH;
+            Scanner input=new Scanner(System.in);
+            System.out.println(Translate.DEFAULT.execute("Ingrese la farmacia",idiomaOriginal, Idioma));
+            String eleccion=input.nextLine();
+            Nodo temporal=head.getNext();
+            while (temporal!=null){
+                if (eleccion.equals(temporal.farmacia.getNombre())){
+                    return temporal.farmacia.listameds;
+                }
+                temporal=temporal.getNext();
+            }
+            return null;
+        }
+    
+    //Nuevo codigo para funcion 4
+    
+    /**
+     * @param MedicamentoSolicitado
+     * @return boolean
+     * 
+     */
+     //Busca el medicamento en cada farmacia, llamando al metodo buscarMedicamento
+    public boolean BuscarEnFarmacia(String MedicamentoSolicitado){
         Nodo temporal=head.getNext();
         while (temporal!=null){
-            if (eleccion.equals(temporal.farmacia.getNombre())){
-                System.out.println(temporal.farmacia.listameds);
-                return temporal.farmacia.listameds;
+            if (temporal.farmacia.listameds.BuscarMedicamento(MedicamentoSolicitado)==true){
+                return true;
             }
-            temporal=temporal.getNext();
+                temporal=temporal.getNext();
         }
-        return null;
+        return false;
     }
-    
-    
-
 }
