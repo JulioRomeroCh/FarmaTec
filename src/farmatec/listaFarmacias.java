@@ -248,7 +248,29 @@ public class listaFarmacias {
         return result.toString();
     }
     
-    public listaMedicamentos VerMedicamentos()throws Exception {
+    public listaMedicamentos VerMedicamentos(Language Lengua)throws Exception {
+
+            Language idiomaOriginal=Language.SPANISH;
+            Scanner input=new Scanner(System.in);
+            if (Lengua==Language.SPANISH){
+                System.out.println("Ingrese la farmacia");
+            }
+            else if (Lengua==Language.ENGLISH){
+                System.out.println(Translate.DEFAULT.execute("Ingrese la farmacia",idiomaOriginal, Lengua));
+            }
+            String eleccion=input.nextLine();
+            Nodo temporal=head.getNext();
+            while (temporal!=null){
+                if (eleccion.equals(temporal.farmacia.getNombre())){
+                    return temporal.farmacia.listameds;
+                }
+                temporal=temporal.getNext();
+                
+            }
+            return null;
+        }
+    
+    public Language SeleccionarIdioma(){
         // Set the HTTP referrer to your website address.
         GoogleAPI.setHttpReferrer("https://github.com/rmtheis/android-ocr");
 
@@ -260,31 +282,17 @@ public class listaFarmacias {
 
         Scanner idioma=new Scanner(System.in);
         System.out.println("Digite el idioma: 1. Español 2. Ingles");
-        Language Idioma;
         int eleccionIdioma=idioma.nextInt();
         switch (eleccionIdioma) {
             case 1:
-                Idioma=Language.SPANISH;
-                break;
+                return Language.SPANISH;
+                
             case 2:
-                Idioma=Language.ENGLISH;
-                break;
+                return Language.ENGLISH;
             default:
                 return null;
             }
-            Language idiomaOriginal=Language.SPANISH;
-            Scanner input=new Scanner(System.in);
-            System.out.println(Translate.DEFAULT.execute("Ingrese la farmacia",idiomaOriginal, Idioma));
-            String eleccion=input.nextLine();
-            Nodo temporal=head.getNext();
-            while (temporal!=null){
-                if (eleccion.equals(temporal.farmacia.getNombre())){
-                    return temporal.farmacia.listameds;
-                }
-                temporal=temporal.getNext();
-            }
-            return null;
-        }
+    }
     
     //Nuevo codigo para funcion 4
     

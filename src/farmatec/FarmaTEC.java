@@ -4,7 +4,9 @@ import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 import java.io.*;
 
-
+import com.google.api.translate.Language;
+import com.google.api.translate.Translate;
+import com.google.api.GoogleAPI;
 
 public class FarmaTEC {
 //
@@ -112,9 +114,11 @@ public class FarmaTEC {
         VerMedi.append(farmacia1);
         VerMedi.append(farmacia2);
         VerMedi.append(farmacia3);
-        listaMedicamentos listaDeMedicinas=VerMedi.VerMedicamentos();
-        listaDeMedicinas.VisualizarMedicamentos();
-             
+        Language Idio=VerMedi.SeleccionarIdioma();
+        if (Idio!=null){
+            listaMedicamentos listaDeMedicinas=VerMedi.VerMedicamentos(Idio);
+            listaDeMedicinas.VisualizarMedicamentos(Idio);
+            }     
         
         //funcion 4
         //Se crea un usuario nuevo y se le asignan el valor a los atributos.
@@ -203,15 +207,18 @@ public class FarmaTEC {
   cola.enqueue(ListaTotalPedidos);
   ListaPedidos primero = (ListaPedidos) cola.first();
   Usuario usuario = primero.getUsuario();
-        System.out.println("AQUÍ VIENE LA COLA");
- System.out.println("Atendiendo a: " + usuario.getNombreUsuario() + "\n" + "medicamento: " + usuario.getMedicamentoSolicitado().getNombre() + "\n" + "Cantidad: " + usuario.getMedicamentoSolicitado().getCantidad());
- System.out.println("Cantidad actual de " + usuario.getMedicamentoSolicitado().getNombre() + " es "+ cola.reducir(usuario));
- primero.removerListaPedidos(0);
+  System.out.println("AQUÍ VIENE LA COLA");
+
+     System.out.println("Atendiendo a: " + usuario.getNombreUsuario() + "\n" + "medicamento: " + usuario.getMedicamentoSolicitado().getNombre() + "\n" + "Cantidad: " + usuario.getMedicamentoSolicitado().getCantidad());
+     System.out.println("Cantidad actual de: " + usuario.getMedicamentoSolicitado().getNombre() + " es " + cola.reducir(usuario));
+     primero.removerListaPedidos(0);  
  Usuario usuario3 = (Usuario) primero.getUsuario();
- System.err.println(primero.toString());
-  System.out.println("Atendiendo a: " + usuario3.getNombreUsuario() + "\n" + "medicamento: " + usuario3.getMedicamentoSolicitado().getNombre() + "\n" + "Cantidad: " + usuario3.getMedicamentoSolicitado().getCantidad());
-  System.out.println("Cantidad actual de: " + usuario3.getMedicamentoSolicitado().getNombre() + " es " + cola.reducir(usuario3));
-  
+
+ 
+    System.err.println(primero.toString());
+     System.out.println("Atendiendo a: " + usuario3.getNombreUsuario() + "\n" + "medicamento: " + usuario3.getMedicamentoSolicitado().getNombre() + "\n" + "Cantidad: " + usuario3.getMedicamentoSolicitado().getCantidad());
+     System.out.println("Cantidad actual de: " + usuario3.getMedicamentoSolicitado().getNombre() + " es " + cola.reducir(usuario3));
+ 
   
 }
 }
