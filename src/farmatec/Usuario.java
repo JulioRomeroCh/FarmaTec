@@ -25,7 +25,7 @@ public class Usuario {
     private String direccion;
     private int telefono;
     private String correo;
-    private String medicamentoSolicitado;
+    private Medicamentos medicamentoSolicitado;
     //Atributos para el API de gmail.
     private final String usuarioAdmi = "farmatec123@gmail.com";
     private final String contraseña = "mwebqkmjcuezeuxz";
@@ -109,14 +109,14 @@ public class Usuario {
     /**
      * @return the medicamentoSolicitado
      */
-    public String getMedicamentoSolicitado() {
+    public Medicamentos getMedicamentoSolicitado() {
         return medicamentoSolicitado;
     }
 
     /**
      * @param medicamentoSolicitado the medicamentoSolicitado to set
      */
-    public void setMedicamentoSolicitado(String medicamentoSolicitado) {
+    public void setMedicamentoSolicitado(Medicamentos medicamentoSolicitado) {
         this.medicamentoSolicitado = medicamentoSolicitado;
     }
     

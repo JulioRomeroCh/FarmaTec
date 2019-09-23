@@ -10,13 +10,13 @@ package farmatec;
  * @author jului
  */
 public class ListaPedidos {
-    private class Node {
+    public class Node {
                 
                 
 		//El elemento sera de tipo usuario
-		private Usuario element;
-		private Node next;
-		private Node previous;
+		public Usuario element;
+		public Node next;
+		public Node previous;
 		
 		//Constructores del nodo.
 		public Node() {
@@ -40,7 +40,7 @@ public class ListaPedidos {
 		
 		//métodos get y set.
 		
-		public Object getElement() {
+		public Usuario getElement() {
 			return this.element;
 		}
 		
@@ -71,6 +71,7 @@ public class ListaPedidos {
 	private Node tail;
 	private int position;
 	private int size;
+        private Node previous;
 
 	public ListaPedidos(){
 		this.head = new Node();
@@ -110,7 +111,7 @@ public class ListaPedidos {
 		this.size++;	
 	}
 	
-	public void remove(){
+	public void remover(){
 		//verificar que la lista no está vacía
 		if ((this.head == this.current) && (this.head == this.tail)){
 			System.out.println("Lista vacía, no se puede remover ningún elemento");
@@ -165,6 +166,37 @@ public class ListaPedidos {
 		this.position--;
 		return true;
 	}
+        public Usuario getUsuario (){
+            return this.current.next.getElement();
+        }
+        
+        public int eliminarPrimero (){
+            if(this.head != null){
+                if (this.current.getNext() == this.head){
+                    this.head = null;
+                }
+            }
+            else {
+                this.previous = this.current;
+                this.current = this.current.next;
+            }
+            this.size --;
+            return size;
+            }
+        
+         public void removerListaPedidos (int posicion){
+            this.size = -1;
+        Node temporal = this.head;
+            while (this.size != posicion){
+                temporal = temporal.getNext();
+                this.size++;
+            }
+            Node temporalAnterior = temporal.getPrevious();
+            Node temporalNext1 = temporal.getNext();
+            temporalNext1.setPrevious(temporalAnterior);
+            temporalAnterior.setNext(temporalNext1);
+            
+        }
 	
 	/**
 	 * Devuelve la representación en String de la lista

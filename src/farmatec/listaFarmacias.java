@@ -197,7 +197,7 @@ public class listaFarmacias {
             }
         }
     }
-
+@Override
     public String toString() {
         Nodo currentNode = this.head.getNext();
 
@@ -294,14 +294,14 @@ public class listaFarmacias {
      * 
      */
      //Busca el medicamento en cada farmacia, llamando al metodo buscarMedicamento
-    public boolean BuscarEnFarmacia(String MedicamentoSolicitado){
+    public Medicamentos BuscarEnFarmacia(String MedicamentoSolicitado){
         Nodo temporal=head.getNext();
         while (temporal!=null){
-            if (temporal.farmacia.listameds.BuscarMedicamento(MedicamentoSolicitado)==true){
-                return true;
+            if (temporal.farmacia.listameds.BuscarMedicamento(MedicamentoSolicitado)!= null){
+                return temporal.farmacia.listameds.BuscarMedicamento(MedicamentoSolicitado);
             }
                 temporal=temporal.getNext();
         }
-        return false;
+        return null;
     }
 }

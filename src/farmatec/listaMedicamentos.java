@@ -251,16 +251,15 @@ public class listaMedicamentos {//Inicio de la clase listaMedicamentos
      * @return boolean 
      */
     //Busca un medicamento en una lista farmacia.
-    public boolean BuscarMedicamento(String Medicamento){
+    public Medicamentos BuscarMedicamento(String Medicamento){
         Nodo temporal=head.getNext();
         while (temporal!=null){
-            System.out.println(temporal.medicamento.getNombre());
             if (temporal.medicamento.getNombre().equals(Medicamento)==true){
-                return true;
+                return temporal.medicamento;
             }
             temporal=temporal.getNext();
         }
-        return false;
+        return null;
     }
     
 }
